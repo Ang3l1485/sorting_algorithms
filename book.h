@@ -10,18 +10,18 @@ class Book {
         std::string title;
         std::string author;
         int isbn;
-        int year;
+        std::string year;
         int number_copies;
 
     public:
         //Constructor de la clase Book
-        Book(const std::string& title, const std::string& author, int isbn, int year, int number_copies);
+        Book(const std::string& title, const std::string& author, int isbn, const std::string& year, int number_copies);
 
         //Métodos para obtener los valores de los atributos
         std::string getTitle() const;
         std::string getAuthor() const;
         int getIsbn() const;
-        int getYear() const;
+        std::string getYear() const;
         int getNumberCopies() const;
 
         //Sobrecarga del operador << para permitir la salida de objetos Book a un flujo de salida

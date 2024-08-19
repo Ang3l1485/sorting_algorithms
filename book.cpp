@@ -1,7 +1,7 @@
 #include "book.h"
 
 // Constructor de la clase Book
-Book::Book(const std::string& title, const std::string& author, int isbn, int year, int number_copies)
+Book::Book(const std::string& title, const std::string& author, int isbn,const std::string& year, int number_copies)
     :title(title), author(author), isbn(isbn), year(year), number_copies(number_copies) {}
 
 // Método para obtener el título del libro
@@ -20,7 +20,7 @@ int Book::getIsbn() const {
 }
 
 // Método para obtener el año de publicación del libro
-int Book::getYear() const {
+std::string Book::getYear() const {
     return year;
 }
 
