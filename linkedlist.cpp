@@ -15,20 +15,6 @@ LinkedList::~LinkedList() {
     }
 }
 
-// Método para agregar un nodo al final de la lista
-// void LinkedList::add(const Book& book) {
-//     Node* new_node = new Node(book);
-//     if (head == nullptr) {
-//         head = new_node; // Si la lista está vacía, el nuevo nodo se convierte en la cabeza
-//     } else {
-//         Node* current = head;
-//         while (current->next != nullptr) {
-//             current = current->next; // Avanzar hasta el último nodo
-//         }
-//         current->next = new_node; // Añadir el nuevo nodo al final
-//     }
-// }
-
 void LinkedList::add(const Book& book) {
     Node* new_node = new Node(book);
     if (head == nullptr) {
