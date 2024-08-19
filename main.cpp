@@ -8,6 +8,12 @@
 #include <windows.h>
 #endif
 
+void setupConsole() {
+    #ifdef _WIN32
+        SetConsoleOutputCP(CP_UTF8);
+    #endif
+}
+
 // para compilar el codigo: g++ book.cpp file.cpp linkedlist.cpp main.cpp node.cpp -o demo
 
 // ./demo
@@ -27,6 +33,8 @@ std::string simulate_full_name() {
 }
 
 int main() {
+    setupConsole();
+    
     charge_data(generator, "book_titles.txt");
     charge_data(generator2, "authors.txt");
 
