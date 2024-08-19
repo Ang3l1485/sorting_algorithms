@@ -3,7 +3,7 @@
 #include "file.h"
 #include "book.h"
 #include "linkedlist.h"
-// para compilar el codigo: g++ .\book.cpp .\file.cpp .\linkedlist.cpp .\main.cpp .\node.cpp -o demo
+// para compilar el codigo: g++ book.cpp file.cpp linkedlist.cpp main.cpp node.cpp -o demo
 
 // ./demo
 
@@ -27,7 +27,7 @@ int main() {
 
     LinkedList list;
     for (int i = 0; i < 10; i++) {
-        list.add(Book(generator.get_random_item(),generator2.get_random_item(),generator.generate_random_integer(1000000000000,9999999999999),generator.random_date(1600,2024), generator.generate_random_integer(0,500)));
+        list.add(Book(generator.get_random_item(),generator2.get_random_item(),generator.generate_random_integer(10000000,99999999),generator.random_date(1600,2024), generator.generate_random_integer(0,500)));
     }
 
     std::cout << "List before sort:" << std::endl;

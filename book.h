@@ -32,4 +32,5 @@ class Book {
         bool operator<(const Book& other) const;
         bool operator==(const Book& other) const;
 };
-#endif; // BOOK_H
+
+#endif // BOOK_H
