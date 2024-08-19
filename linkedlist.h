@@ -33,8 +33,6 @@ public:
     // Método para intercambiar dos Nodes si el primero es mayor que el segundo
     void swap(Node* node1, Node* node2);
 
-
-
     // Método para ordenar la lista usando el método de burbuja
     void bubble_sort();
 

@@ -3,6 +3,11 @@
 #include "file.h"
 #include "book.h"
 #include "linkedlist.h"
+
+#ifdef _WIN32
+#include <windows.h>
+#endif
+
 // para compilar el codigo: g++ book.cpp file.cpp linkedlist.cpp main.cpp node.cpp -o demo
 
 // ./demo
@@ -33,16 +38,16 @@ int main() {
     std::cout << "List before sort:" << std::endl;
     list.print();
 
-    // // Medir el tiempo de ordenación
-    // auto start = std::chrono::high_resolution_clock::now(); // Captura el tiempo de inicio
-    //   //lista.ordenarBurbuja(); // Llama al método de ordenación
-    //   list.merge_sort();
-    // auto end = std::chrono::high_resolution_clock::now(); // Captura el tiempo de fin
-    // auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count(); // Calcula la duración en milisegundos
+    // Medir el tiempo de ordenación
+    auto start = std::chrono::high_resolution_clock::now(); // Captura el tiempo de inicio
+      //lista.ordenarBurbuja(); // Llama al método de ordenación
+      list.bubble_sort();
+    auto end = std::chrono::high_resolution_clock::now(); // Captura el tiempo de fin
+    auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count(); // Calcula la duración en milisegundos
 
-    // std::cout << "List after sort:" << std::endl;
-    // list.print();
-    // std::cout << "Sorting time: " << duration << " ms" << std::endl; // Imprime la duración
+    std::cout << "\nList after sort:" << std::endl;
+    list.print();
+    std::cout << "Sorting time: " << duration << " ms" << std::endl; // Imprime la duración
     
     return 0;
 }
