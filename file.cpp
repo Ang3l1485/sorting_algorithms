@@ -49,9 +49,9 @@ std::string File::random_date(int min_year, int max_year) const {
     int day = 1 + std::rand() % 28;  // Simplificación: todos los meses tienen 28 días
 
     std::stringstream ss;
-    ss << std::setw(2) << std::setfill('0') << day << "/"
+    ss << year << "/"
        << std::setw(2) << std::setfill('0') << month << "/"
-       << year;
+       << std::setw(2) << std::setfill('0')<<day;
     return ss.str();
 }
 

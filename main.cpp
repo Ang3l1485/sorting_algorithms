@@ -33,16 +33,16 @@ int main() {
     std::cout << "List before sort:" << std::endl;
     list.print();
 
-    // // Medir el tiempo de ordenación
-    // auto start = std::chrono::high_resolution_clock::now(); // Captura el tiempo de inicio
-    //   //lista.ordenarBurbuja(); // Llama al método de ordenación
-    //   list.merge_sort();
-    // auto end = std::chrono::high_resolution_clock::now(); // Captura el tiempo de fin
-    // auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count(); // Calcula la duración en milisegundos
+    // Medir el tiempo de ordenación
+    auto start = std::chrono::high_resolution_clock::now(); // Captura el tiempo de inicio
+      //lista.ordenarBurbuja(); // Llama al método de ordenación
+      list.merge_sort(BY_YEAR);
+    auto end = std::chrono::high_resolution_clock::now(); // Captura el tiempo de fin
+    auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count(); // Calcula la duración en milisegundos
 
-    // std::cout << "List after sort:" << std::endl;
-    // list.print();
-    // std::cout << "Sorting time: " << duration << " ms" << std::endl; // Imprime la duración
+    std::cout << "List after sort:" << std::endl;
+    list.print();
+    std::cout << "Sorting time: " << duration << " ms" << std::endl; // Imprime la duración
     
     return 0;
 }

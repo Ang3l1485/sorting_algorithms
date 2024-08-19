@@ -53,7 +53,7 @@ void LinkedList::bubble_sort() {
         swapped = false;
         Node* current = head;
         while (current->next != nullptr) {
-            if (current->data > current->next->data) {
+            if (current->data.getIsbn() > current->next->data.getIsbn()) {
                 swap(current, current->next);
                 swapped = true;
             }
@@ -81,33 +81,50 @@ Node* LinkedList::split(Node* head) {
 }
 
 // Método auxiliar para fusionar dos listas ordenadas
-Node* LinkedList::merge(Node* left, Node* right) {
-    if (left == nullptr) return right; // Si la lista izquierda está vacía, devolver la lista derecha
-    if (right == nullptr) return left; // Si la lista derecha está vacía, devolver la lista izquierda
+// Método auxiliar para fusionar dos listas ordenadas según el criterio
+Node* LinkedList::merge(Node* left, Node* right, SortCriterion criterion) {
+    if (left == nullptr) return right;
+    if (right == nullptr) return left;
 
-    if (left->data < right->data) {
-        left->next = merge(left->next, right); // Fusionar el resto de la lista izquierda con la lista derecha
+    bool comparison = false;
+    // Comparar los nodos según el criterio de ordenación
+    switch (criterion) {
+        case BY_ISBN:
+            comparison = left->data.getIsbn() < right->data.getIsbn();
+            break;
+        case BY_YEAR:
+            comparison = left->data.getYear() < right->data.getYear(); // Asume que es un string
+            break;
+        case BY_COPIES:
+            comparison = left->data.getNumberCopies() < right->data.getNumberCopies();
+            break;
+    }
+
+    if (comparison) {
+        left->next = merge(left->next, right, criterion);
         return left;
     } else {
-        right->next = merge(left, right->next); // Fusionar la lista izquierda con el resto de la lista derecha
+        right->next = merge(left, right->next, criterion);
         return right;
     }
 }
 
+
 // Método auxiliar para realizar el Merge Sort de manera recursiva
-Node* LinkedList::merge_sort_recursive(Node* head) {
+Node* LinkedList::merge_sort_recursive(Node* head, SortCriterion criterion) {
     if (head == nullptr || head->next == nullptr) {
-        return head; // Si la lista está vacía o tiene un solo nodo, ya está ordenada
+        return head;
     }
 
-    Node* half = split(head); // Dividir la lista en dos mitades
-    Node* left = merge_sort_recursive(head); // Ordenar la primera mitad
-    Node* right = merge_sort_recursive(half); // Ordenar la segunda mitad
+    Node* half = split(head);
+    Node* left = merge_sort_recursive(head, criterion);
+    Node* right = merge_sort_recursive(half, criterion);
 
-    return merge(left, right); // Fusionar las dos mitades ordenadas
+    return merge(left, right, criterion);
 }
 
 // Método para ordenar la lista usando el método de Merge Sort
-void LinkedList::merge_sort() {
-    head = merge_sort_recursive(head); // Ordenar la lista y actualizar la cabeza
+void LinkedList::merge_sort(SortCriterion criterion) {
+    head = merge_sort_recursive(head, criterion);
 }
+

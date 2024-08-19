@@ -3,8 +3,14 @@
 
 #include "node.h" // Include the node class declaration
 
+enum SortCriterion {
+    BY_ISBN,
+    BY_YEAR,
+    BY_COPIES
+};
 // Creation of the LinkedList class
 class LinkedList {
+    
 private:
     Node* head; // Puntero al primer Node de la lista ligada
 
@@ -12,10 +18,10 @@ private:
     Node* split(Node* head);
 
     // Método auxiliar para fusionar dos listas ordenadas
-    Node* merge(Node* left, Node* right);
+    Node* merge(Node* left, Node* right, SortCriterion criterion);
 
     // Método auxiliar para realizar el Merge Sort de manera recursiva
-    Node* merge_sort_recursive(Node* head);
+    Node* merge_sort_recursive(Node* head, SortCriterion criterion);
 
 public:
     // Constructor que inicializa la lista vacía
@@ -39,7 +45,7 @@ public:
     void bubble_sort();
 
     // Método para ordenar la lista usando el método de Merge Sort
-    void merge_sort();
+    void merge_sort(SortCriterion criterion);
 };
 
 #endif // LINKEDLIST_H
