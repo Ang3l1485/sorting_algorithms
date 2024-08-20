@@ -34,7 +34,7 @@ std::string simulate_full_name() {
 
 int main() {
     setupConsole();
-    
+
     charge_data(generator, "book_titles.txt");
     charge_data(generator2, "authors.txt");
 
@@ -43,9 +43,17 @@ int main() {
         list.add(Book(generator.get_random_item(),generator2.get_random_item(),generator.generate_random_integer(10000000,99999999),generator.random_date(1600,2024), generator.generate_random_integer(0,500)));
     }
 
-    std::cout << "List before sort:" << std::endl;
+    std::cout << "\nList before sort:" << std::endl;
     list.print();
 
+    std::cout << "\nList after sort by title:" << std::endl;
+    list.quick_sort_title();
+    list.print();
+
+    std::cout << "\nList after sort by author:" << std::endl;
+    list.quick_sort_author();
+    list.print();
+  
     // Medir el tiempo de ordenación
     auto start = std::chrono::high_resolution_clock::now(); // Captura el tiempo de inicio
       //lista.ordenarBurbuja(); // Llama al método de ordenación
@@ -101,6 +109,18 @@ int main() {
     std::cout << "\nList after sort by title:" << std::endl;
     list.print();
     std::cout << "Sorting time by title: " << duration5 << " ms" << std::endl; // Imprime la duración
+  
+    std::cout << "\nList after sort by year:" << std::endl;
+    list.quick_sort_year();
+    list.print();
+
+    std::cout << "\nList after sort by isbn:" << std::endl;
+    list.quick_sort_isbn();
+    list.print();
+
+    std::cout << "\nList after sort by number of copies:" << std::endl;
+    list.quick_sort_copies();
+    list.print();
     
     return 0;
 }
