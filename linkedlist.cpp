@@ -37,6 +37,13 @@ void LinkedList::print() const {
     }
 }
 
+// Método para intercambiar dos nodos si el primero es mayor que el segundo
+void LinkedList::swap(Node* node1, Node* node2) {
+    Book temp = node1->data;
+    node1->data = node2->data;
+    node2->data = temp;
+}
+
 void LinkedList::quick_sort_title() {
     head = quick_sort_recursive_title(head, getLast(head));
 }
@@ -44,6 +51,7 @@ void LinkedList::quick_sort_title() {
 // Método para ordenar la lista por año usando el método de burbuja
 void LinkedList::bubble_sort_year() {
     if (head == nullptr) return;
+}
 
 void LinkedList::quick_sort_author() {
     head = quick_sort_recursive_author(head, getLast(head));
@@ -290,7 +298,8 @@ void LinkedList::bubble_sort_title() {
             current = current->next;
         }
     } while (swapped);
-=======
+}
+
 Node* LinkedList::split_quick_sort_author(Node* low, Node* high, Node** newLow, Node** newHigh) {
     Node* pivot = high;
     Node* prev = nullptr;
@@ -324,6 +333,7 @@ Node* LinkedList::split_quick_sort_author(Node* low, Node* high, Node** newLow, 
 
     return pivot;
 }
+
 
 Node* LinkedList::split_quick_sort_year(Node* low, Node* high, Node** newLow, Node** newHigh) {
     Node* pivot = high;

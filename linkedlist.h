@@ -67,6 +67,8 @@ public:
     void quick_sort_isbn();
 
     void quick_sort_copies();
+
+    void swap(Node* node1, Node* node2);
 };
 
 #endif // LINKEDLIST_H
