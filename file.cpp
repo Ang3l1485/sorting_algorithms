@@ -51,7 +51,7 @@ std::string File::random_date(int min_year, int max_year) const {
     std::stringstream ss;
     ss << year << "/"
        << std::setw(2) << std::setfill('0') << month << "/"
-       << std::setw(2) << std::setfill('0') << day;
+       << std::setw(2) << std::setfill('0')<<day;
     return ss.str();
 }
 

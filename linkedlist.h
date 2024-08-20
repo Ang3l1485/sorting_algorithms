@@ -3,13 +3,30 @@
 
 #include "node.h" // Include the node class declaration
 
+enum SortCriterion {
+    BY_ISBN,
+    BY_YEAR,
+    BY_COPIES,
+    BY_AUTHOR,
+    BY_TITLE
+};
 // Creation of the LinkedList class
 class LinkedList {
+    
 private:
     Node* head; // Puntero al primer Node de la lista ligada
 
     Node* quick_sort_recursive_title(Node* low, Node* high);
 
+    // Método auxiliar para dividir la lista en dos mitades
+    Node* split(Node* head);
+
+    // Método auxiliar para fusionar dos listas ordenadas
+    Node* merge(Node* left, Node* right, SortCriterion criterion);
+
+    // Método auxiliar para realizar el Merge Sort de manera recursiva
+    Node* merge_sort_recursive(Node* head, SortCriterion criterion);
+    
     Node* quick_sort_recursive_author(Node* low, Node* high);
 
     Node* quick_sort_recursive_year(Node* low, Node* high);
@@ -52,6 +69,8 @@ public:
     // Método para ordenar la lista usando el método de burbuja
     void bubble_sort_year();
 
+    // Método para ordenar la lista usando el método de Merge Sort
+    void merge_sort(SortCriterion criterion);
     // Metodo para ordenar la lista por isbn usando el metodo de burbuja
     void bubble_sort_isbn();
 
