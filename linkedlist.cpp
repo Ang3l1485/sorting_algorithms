@@ -44,6 +44,77 @@ void LinkedList::swap(Node* node1, Node* node2) {
     node2->data = temp;
 }
 
+// Método auxiliar para dividir la lista en dos mitades
+Node* LinkedList::split(Node* head) {
+    if (head == nullptr || head->next == nullptr) {
+        return nullptr; // La lista está vacía o tiene un solo nodo
+    }
+
+    Node* slow = head;
+    Node* fast = head;
+    while (fast->next != nullptr && fast->next->next != nullptr) {
+        slow = slow->next; // Avanzar el puntero lento
+        fast = fast->next->next; // Avanzar el puntero rápido
+    }
+
+    Node* half = slow->next; // La segunda mitad comienza en el siguiente nodo del puntero lento
+    slow->next = nullptr; // Dividir la lista en dos mitades
+    return half;
+}
+
+// Método auxiliar para fusionar dos listas ordenadas según el criterio
+Node* LinkedList::merge(Node* left, Node* right, SortCriterion criterion) {
+    if (left == nullptr) return right;
+    if (right == nullptr) return left;
+
+    bool comparison = false;
+    // Comparar los nodos según el criterio de ordenación
+    switch (criterion) {
+        case BY_ISBN:
+            comparison = left->data.getIsbn() < right->data.getIsbn();
+            break;
+        case BY_YEAR:
+            comparison = left->data.getYear() < right->data.getYear(); // Asume que es un string
+            break;
+        case BY_COPIES:
+            comparison = left->data.getNumberCopies() < right->data.getNumberCopies();
+            break;
+        case BY_AUTHOR:
+            comparison = left->data.getAuthor() < right->data.getAuthor();
+            break;
+        case BY_TITLE:
+            comparison = left->data.getTitle() < right->data.getTitle();
+
+    }
+
+    if (comparison) {
+        left->next = merge(left->next, right, criterion);
+        return left;
+    } else {
+        right->next = merge(left, right->next, criterion);
+        return right;
+    }
+}
+
+
+// Método auxiliar para realizar el Merge Sort de manera recursiva
+Node* LinkedList::merge_sort_recursive(Node* head, SortCriterion criterion) {
+    if (head == nullptr || head->next == nullptr) {
+        return head;
+    }
+
+    Node* half = split(head);
+    Node* left = merge_sort_recursive(head, criterion);
+    Node* right = merge_sort_recursive(half, criterion);
+
+    return merge(left, right, criterion);
+}
+
+// Método para ordenar la lista usando el método de Merge Sort
+void LinkedList::merge_sort(SortCriterion criterion) {
+    head = merge_sort_recursive(head, criterion);
+}
+
 void LinkedList::quick_sort_title() {
     head = quick_sort_recursive_title(head, getLast(head));
 }

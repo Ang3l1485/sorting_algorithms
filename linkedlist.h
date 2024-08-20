@@ -18,11 +18,15 @@ private:
 
     Node* quick_sort_recursive_title(Node* low, Node* high);
 
+    // Método auxiliar para dividir la lista en dos mitades
+    Node* split(Node* head);
+
     // Método auxiliar para fusionar dos listas ordenadas
     Node* merge(Node* left, Node* right, SortCriterion criterion);
 
     // Método auxiliar para realizar el Merge Sort de manera recursiva
     Node* merge_sort_recursive(Node* head, SortCriterion criterion);
+    
     Node* quick_sort_recursive_author(Node* low, Node* high);
 
     Node* quick_sort_recursive_year(Node* low, Node* high);
