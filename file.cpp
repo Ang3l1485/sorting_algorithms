@@ -42,7 +42,7 @@ std::string File::get_random_item() const {
     return items[random_index];
 }
 
-// Método para generar una fecha aleatoria en formato dia/mes/año
+// Método para generar una fecha aleatoria en formato año/mes/día
 std::string File::random_date(int min_year, int max_year) const {
     int year = min_year + std::rand() % (max_year - min_year + 1);
     int month = 1 + std::rand() % 12;
