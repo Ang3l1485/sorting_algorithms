@@ -41,6 +41,10 @@ void LinkedList::quick_sort_title() {
     head = quick_sort_recursive_title(head, getLast(head));
 }
 
+// Método para ordenar la lista por año usando el método de burbuja
+void LinkedList::bubble_sort_year() {
+    if (head == nullptr) return;
+
 void LinkedList::quick_sort_author() {
     head = quick_sort_recursive_author(head, getLast(head));
 }
@@ -215,7 +219,78 @@ Node* LinkedList::split_quick_sort_title(Node* low, Node* high, Node** newLow, N
 
     return pivot;
 }
+  
+// Metodo para ordenar la lista por isbn usando el metodo de burbuja
+void LinkedList::bubble_sort_isbn() {
+    if (head == nullptr) return;
 
+    bool swapped;
+    do {
+        swapped = false;
+        Node* current = head;
+        while (current->next != nullptr) {
+            if (current->data.getIsbn() > current->next->data.getIsbn()) {
+                swap(current, current->next);
+                swapped = true;
+            }
+            current = current->next;
+        }
+    } while (swapped);
+}
+
+// Método para ordenar la lista por número de copias usando el método de burbuja
+void LinkedList::bubble_sort_copies() {
+    if (head == nullptr) return;
+
+    bool swapped;
+    do {
+        swapped = false;
+        Node* current = head;
+        while (current->next != nullptr) {
+            if (current->data.getNumberCopies() > current->next->data.getNumberCopies()) {
+                swap(current, current->next);
+                swapped = true;
+            }
+            current = current->next;
+        }
+    } while (swapped);
+}
+
+// Método para ordenar la lista por autor usando el método de burbuja
+void LinkedList::bubble_sort_author() {
+    if (head == nullptr) return;
+
+    bool swapped;
+    do {
+        swapped = false;
+        Node* current = head;
+        while (current->next != nullptr) {
+            if (current->data.getAuthor() > current->next->data.getAuthor()) {
+                swap(current, current->next);
+                swapped = true;
+            }
+            current = current->next;
+        }
+    } while (swapped);
+}
+
+// Método para ordenar la lista por título usando el método de burbuja
+void LinkedList::bubble_sort_title() {
+    if (head == nullptr) return;
+
+    bool swapped;
+    do {
+        swapped = false;
+        Node* current = head;
+        while (current->next != nullptr) {
+            if (current->data.getTitle() > current->next->data.getTitle()) {
+                swap(current, current->next);
+                swapped = true;
+            }
+            current = current->next;
+        }
+    } while (swapped);
+=======
 Node* LinkedList::split_quick_sort_author(Node* low, Node* high, Node** newLow, Node** newHigh) {
     Node* pivot = high;
     Node* prev = nullptr;

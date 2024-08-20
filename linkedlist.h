@@ -49,6 +49,21 @@ public:
 
     void quick_sort_year();
 
+    // Método para ordenar la lista usando el método de burbuja
+    void bubble_sort_year();
+
+    // Metodo para ordenar la lista por isbn usando el metodo de burbuja
+    void bubble_sort_isbn();
+
+    //Método para ordenar la lista por número de copias usando el método de burbuja
+    void bubble_sort_copies();
+
+    //Método para ordenar la lista por autor usando el método de burbuja
+    void bubble_sort_author();
+
+    //Método para ordenar la lista por título usando el método de burbuja
+    void bubble_sort_title();
+
     void quick_sort_isbn();
 
     void quick_sort_copies();
