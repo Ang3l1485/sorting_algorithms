@@ -36,7 +36,7 @@ int main() {
     // Medir el tiempo de ordenación
     auto start = std::chrono::high_resolution_clock::now(); // Captura el tiempo de inicio
       //lista.ordenarBurbuja(); // Llama al método de ordenación
-      list.merge_sort(BY_YEAR);
+      list.merge_sort(BY_TITLE);
     auto end = std::chrono::high_resolution_clock::now(); // Captura el tiempo de fin
     auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count(); // Calcula la duración en milisegundos
 

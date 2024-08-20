@@ -98,6 +98,12 @@ Node* LinkedList::merge(Node* left, Node* right, SortCriterion criterion) {
         case BY_COPIES:
             comparison = left->data.getNumberCopies() < right->data.getNumberCopies();
             break;
+        case BY_AUTHOR:
+            comparison = left->data.getAuthor() < right->data.getAuthor();
+            break;
+        case BY_TITLE:
+            comparison = left->data.getTitle() < right->data.getTitle();
+
     }
 
     if (comparison) {

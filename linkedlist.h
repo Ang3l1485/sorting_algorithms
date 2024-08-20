@@ -6,7 +6,9 @@
 enum SortCriterion {
     BY_ISBN,
     BY_YEAR,
-    BY_COPIES
+    BY_COPIES,
+    BY_AUTHOR,
+    BY_TITLE
 };
 // Creation of the LinkedList class
 class LinkedList {
@@ -46,6 +48,7 @@ public:
 
     // Método para ordenar la lista usando el método de Merge Sort
     void merge_sort(SortCriterion criterion);
+    
 };
 
 #endif // LINKEDLIST_H
