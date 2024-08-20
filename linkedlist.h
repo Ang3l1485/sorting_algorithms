@@ -8,15 +8,6 @@ class LinkedList {
 private:
     Node* head; // Puntero al primer Node de la lista ligada
 
-    // Método auxiliar para dividir la lista en dos mitades
-    Node* split(Node* head);
-
-    // Método auxiliar para fusionar dos listas ordenadas
-    Node* merge(Node* left, Node* right);
-
-    // Método auxiliar para realizar el Merge Sort de manera recursiva
-    Node* merge_sort_recursive(Node* head);
-
 public:
     // Constructor que inicializa la lista vacía
     LinkedList();
@@ -48,8 +39,6 @@ public:
     //Método para ordenar la lista por título usando el método de burbuja
     void bubble_sort_title();
 
-    // Método para ordenar la lista usando el método de Merge Sort
-    void merge_sort();
 };
 
 #endif // LINKEDLIST_H

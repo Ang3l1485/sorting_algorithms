@@ -68,7 +68,7 @@ int main() {
     list.print();
     std::cout << "Sorting time by ISBN: " << duration2 << " ms" << std::endl; // Imprime la duración
 
-    // Medir el tiempo de ordenación
+        // Medir el tiempo de ordenación
     auto start3 = std::chrono::high_resolution_clock::now(); // Captura el tiempo de inicio
       //lista.ordenarBurbuja(); // Llama al método de ordenación
       list.bubble_sort_copies();
