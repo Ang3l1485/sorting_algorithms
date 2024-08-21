@@ -25,13 +25,13 @@ void charge_data(File &generate, const std::string& file) {
 }
 
 void measure_performance_title(LinkedList& list) {
-    {
-        auto start = std::chrono::high_resolution_clock::now();
-        list.bubble_sort_title();
-        auto end = std::chrono::high_resolution_clock::now();
-        auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();
-        std::cout << "\nBubble sort by Title: " << duration << " ms" << std::endl;
-    }
+    // {
+    //     auto start = std::chrono::high_resolution_clock::now();
+    //     list.bubble_sort_title();
+    //     auto end = std::chrono::high_resolution_clock::now();
+    //     auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();
+    //     std::cout << "\nBubble sort by Title: " << duration << " ms" << std::endl;
+    // }
 
     {
         auto start = std::chrono::high_resolution_clock::now();
@@ -51,13 +51,13 @@ void measure_performance_title(LinkedList& list) {
 }
 
 void measure_performance_isbn(LinkedList& list) {
-    {
-        auto start = std::chrono::high_resolution_clock::now();
-        list.bubble_sort_isbn();
-        auto end = std::chrono::high_resolution_clock::now();
-        auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();
-        std::cout << "\nBubble sort by ISBN: " << duration << " ms" << std::endl;
-    }
+    // {
+    //     auto start = std::chrono::high_resolution_clock::now();
+    //     list.bubble_sort_isbn();
+    //     auto end = std::chrono::high_resolution_clock::now();
+    //     auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();
+    //     std::cout << "\nBubble sort by ISBN: " << duration << " ms" << std::endl;
+    // }
 
     {
         auto start = std::chrono::high_resolution_clock::now();
@@ -77,13 +77,13 @@ void measure_performance_isbn(LinkedList& list) {
 }
 
 void measure_performance_copies(LinkedList& list) {
-    {
-        auto start = std::chrono::high_resolution_clock::now();
-        list.bubble_sort_copies();
-        auto end = std::chrono::high_resolution_clock::now();
-        auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();
-        std::cout << "\nBubble sort by Copies: " << duration << " ms" << std::endl;
-    }
+    // {
+    //     auto start = std::chrono::high_resolution_clock::now();
+    //     list.bubble_sort_copies();
+    //     auto end = std::chrono::high_resolution_clock::now();
+    //     auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();
+    //     std::cout << "\nBubble sort by Copies: " << duration << " ms" << std::endl;
+    // }
 
     {
         auto start = std::chrono::high_resolution_clock::now();
@@ -111,10 +111,11 @@ int main() {
 
     LinkedList list;
 
-    for (int i = 0; i < 250000; i++) {
+    for (int i = 0; i < 50000; i++) {
         list.add(Book(generator.get_random_item(),generator2.get_random_item(),generator.generate_random_integer(10000000,99999999),generator.random_date(1600,2024), generator.generate_random_integer(0,500)));
     }
 
+    list.print();
     measure_performance_title(list);
     measure_performance_copies(list);
     
