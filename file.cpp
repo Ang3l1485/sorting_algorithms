@@ -23,16 +23,6 @@ void File::read_from_file(const std::string& file_name) {
     }
 }
 
-// Método para imprimir los items
-void File::print_items() const {
-    int i=1;
-    for (const auto& item : items) {
-        std::cout << "["<< i << "]: " <<item << std::endl;
-        i=i+1;
-    }
-    std::cout << std::endl;
-}
-
 // Método para retornar un item aleatorio
 std::string File::get_random_item() const {
     if (items.empty()) {
@@ -51,7 +41,7 @@ std::string File::random_date(int min_year, int max_year) const {
     std::stringstream ss;
     ss << year << "/"
        << std::setw(2) << std::setfill('0') << month << "/"
-       << std::setw(2) << std::setfill('0')<<day;
+       << std::setw(2) << std::setfill('0') << day;
     return ss.str();
 }
 

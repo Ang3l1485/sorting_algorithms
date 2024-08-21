@@ -1,6 +1,5 @@
 #include "linkedlist.h"
 #include <iostream>
-#include <chrono> // Biblioteca para medir el tiempo de ejecución
 
 // Constructor que inicializa la lista vacía
 LinkedList::LinkedList() : head(nullptr) {}
